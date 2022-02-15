@@ -2,12 +2,26 @@ import random
 
 lockpass = {'a': '', 'b': '', 'c': '', 'd': ''}
 playerguss = {'a': '', 'b': '', 'c': '', 'd': ''}
+PG = ''
 
 
 def Passmaker():
     num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
     for key in lockpass:
         lockpass[key] = random.choice(num)
+
+
+def Playergussdecleaer(PG):
+    PG = list(PG.strip())
+    for item in range(len(PG)-1):
+        if not PG[item].isnumeric():
+            PG.remove(PG[item])
+    if len(PG) < 4:
+        print('your guss is to short')
+    elif len(PG) > 4:
+        print('your guss is to long')
+    else:
+        return PG
 
 
 def Comparator():
@@ -33,3 +47,5 @@ def Comparator():
 
 
 Passmaker()
+PG = input()
+Playergussdecleaer(PG)
