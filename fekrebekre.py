@@ -13,7 +13,8 @@ def Passmaker():
 
 def Playergussdecleaer(PG):
     PG = list(PG.strip())
-    for item in range(len(PG)-1):
+    # fixing error with 'reversed()'->Index Out of Range (for revoming item)
+    for item in reversed(range(len(PG))):
         if not PG[item].isnumeric():
             PG.remove(PG[item])
     if len(PG) < 4:
