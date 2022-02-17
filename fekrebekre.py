@@ -60,7 +60,6 @@ going = True
 lock = True
 while going:
     lockpass = Passmaker()
-    print(lockpass)
     while lock:
         playerguss = Playergussdecleaer()
         action = Comparator(playerguss, lockpass)
