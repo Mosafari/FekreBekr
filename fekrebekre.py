@@ -1,7 +1,7 @@
 import random
 
 lockpass = {'a': '', 'b': '', 'c': '', 'd': ''}
-playerguss = {'a': '', 'b': '', 'c': '', 'd': ''}
+playerguess = {'a': '', 'b': '', 'c': '', 'd': ''}
 PG = ''
 
 
@@ -12,7 +12,7 @@ def Passmaker():
     return lockpass
 
 
-def Playergussdecleaer():
+def Playerguessdecleaer():
     PG = input('Enter Your Guss : ')
     PG = list(PG.strip())
     # fixing error with 'reversed()'->Index Out of Range (for revoming item)
@@ -20,28 +20,28 @@ def Playergussdecleaer():
         if not PG[item].isnumeric():
             PG.remove(PG[item])
     if len(PG) < 4:
-        print('your guss is to short , try another')
-        return Playergussdecleaer()
+        print('your guess is to short , try another')
+        return Playerguessdecleaer()
     elif len(PG) > 4:
-        print('your guss is to long , try another')
-        return Playergussdecleaer()
+        print('your guess is to long , try another')
+        return Playerguessdecleaer()
 
     else:
         i = 0
-        for key in playerguss:
-            playerguss[key] = PG[i]
+        for key in playerguess:
+            playerguess[key] = PG[i]
             i += 1
-        return playerguss
+        return playerguess
 
 
-def Comparator(playerguss, lockpass):
+def Comparator(playerguess, lockpass):
     RNRP = 0  # right num in right place
     RNWP = 0  # right num in wrong place
-    for key in playerguss:
-        if playerguss[key] == lockpass[key]:
+    for key in playerguess:
+        if playerguess[key] == lockpass[key]:
             RNRP += 1
 
-        elif playerguss[key] in lockpass.values():
+        elif playerguess[key] in lockpass.values():
             RNWP += 1
 
     if RNRP > 0 and RNRP < 4:
@@ -61,8 +61,8 @@ lock = True
 while going:
     lockpass = Passmaker()
     while lock:
-        playerguss = Playergussdecleaer()
-        action = Comparator(playerguss, lockpass)
+        playerguess = Playerguessdecleaer()
+        action = Comparator(playerguess, lockpass)
         if action == False:
             lock = False
     going = False
