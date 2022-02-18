@@ -13,7 +13,7 @@ def Passmaker():
 
 
 def Playerguessdecleaer():
-    PG = input('Enter Your Guss : ')
+    PG = input('Enter Your Guess : ')
     PG = list(PG.strip())
     # fixing error with 'reversed()'->Index Out of Range (for revoming item)
     for item in reversed(range(len(PG))):
@@ -65,4 +65,4 @@ while going:
         action = Comparator(playerguess, lockpass)
         if action == False:
             lock = False
-    going = False
+    going = input('"You Win"\nPress Enter for Exit')
